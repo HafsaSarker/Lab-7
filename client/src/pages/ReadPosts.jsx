@@ -14,14 +14,15 @@ const ReadPosts = ({allPosts, setAllPosts}) => {
               setAllPosts(data);
         }
         fetchPosts();  
+        //console.log(allPosts)
     }, [allPosts]);
-    
+
     return (
         <div className="ReadPosts">
             {
                 allPosts && allPosts.length > 0 ?
                 allPosts.map((post,index) => 
-                   <Card id={post.id} title={post.title} author={post.author} description={post.description}/>
+                   <Card key={post.id} id={post.id} title={post.title} author={post.author} description={post.description}/>
                 ) : <h2>{'No Challenges Yet 😞'}</h2>
             }
         </div>  
