@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useRoutes } from 'react-router-dom'
 import ReadPosts from './pages/ReadPosts'
@@ -8,26 +8,30 @@ import EditPost from './pages/EditPost'
 import { Link } from 'react-router-dom'
 
 
+
 const App = () => {
-  const [posts, setPosts] = useState({
+  const [post, setPost] = useState({
     title: null,
     author: null,
     description: null
   })
 
+  //all allPosts from database
+  const [allPosts, setAllPosts] = useState([]);
+
   // Sets up routes
   let element = useRoutes([
     {
       path: "/",
-      element:<ReadPosts data={posts}/>
+      element:<ReadPosts allPosts={allPosts} setAllPosts={setAllPosts}/>
     },
     {
       path:"/edit/:id",
-      element: <EditPost data={posts} />
+      element: <EditPost data={allPosts} />
     },
     {
       path:"/new",
-      element: <CreatePost posts={posts} setPosts={setPosts} />
+      element: <CreatePost post={post} setPost={setPost} />
     }
   ]);
 

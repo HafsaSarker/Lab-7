@@ -2,14 +2,14 @@ import React from 'react';
 import { supabase } from '../client';
 import './CreatePost.css'
 
-const CreatePost = ({posts, setPosts}) => {
+const CreatePost = ({post, setPost}) => {
     
     const createPost = async (event) => {
         event.preventDefault();
 
         await supabase
         .from('Posts')
-        .insert({title: posts.title, author: posts.author, description: posts.description})
+        .insert({title: post.title, author: post.author, description: post.description})
         .select();
 
         
@@ -19,7 +19,7 @@ const CreatePost = ({posts, setPosts}) => {
     const handleChange = (event) => {
         const {name, value} = event.target;
 
-        setPosts((prevPost) => ({
+        setPost((prevPost) => ({
             ...prevPost,
             [name]: value
         }));
