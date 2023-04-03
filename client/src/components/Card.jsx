@@ -1,14 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { supabase } from '../client'
 import './Card.css'
 import more from './more.png'
 import { Link } from 'react-router-dom'
 
 
 const Card = (props) =>  {
-
   const [count, setCount] = useState(0)
-  const updateCount = () => {
+
+  useEffect(() => {
+    const fetchBetCount = async () => {
+      const {data} = await supabase
+        .from('Posts')
+        .select()
+        .eq('id', props.id)
+        .single();
+      
+      setCount(data.betCount);    
+    }
+    console.log(count);
+    fetchBetCount();
+  }, [count])
+
+
+  const updateCount = async (event) => {
+    event.preventDefault();
+
+    await supabase
+      .from('Posts')
+      .update({ betCount: count + 1})
+      .eq('id', props.id);
+
     setCount((count) => count + 1);
   }
 
