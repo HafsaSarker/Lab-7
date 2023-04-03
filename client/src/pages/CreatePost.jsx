@@ -11,6 +11,9 @@ const CreatePost = ({posts, setPosts}) => {
         .from('Posts')
         .insert({title: posts.title, author: posts.author, description: posts.description})
         .select();
+
+        
+        window.location = "/";
     }
 
     const handleChange = (event) => {
@@ -20,8 +23,6 @@ const CreatePost = ({posts, setPosts}) => {
             ...prevPost,
             [name]: value
         }));
-
-        window.location = "/";
     }
 
     return (
