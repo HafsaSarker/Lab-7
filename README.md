@@ -1,6 +1,6 @@
 # Web Development Lab 7 - *Bet!*
 
-Hosted at: 
+Hosted at: https://astounding-nasturtium-81ac5e.netlify.app/
 
 Description: **Using React and Supabase, Bet is a forum built for Gen Z thrill-seekers where users can post challenges for other users. Users can take on a challenge by clicking the “Bet” button.**
 
