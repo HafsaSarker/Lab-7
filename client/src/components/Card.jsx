@@ -19,7 +19,6 @@ const Card = (props) =>  {
       
       setCount(data.betCount);    
     }
-    console.log(count);
     fetchBetCount();
   }, [count])
 
