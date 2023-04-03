@@ -29,8 +29,11 @@ const EditPost = ({allPosts, post}) => {
 
     const updatePost = async(event) => {
         event.preventDefault();
-        console.log(edits)
         
+        await supabase
+            .from('Posts')
+            .update({title: edits.title, author: edits.author,  description: edits.description})
+            .eq('id', id);
         window.location = "/";
     }
     
