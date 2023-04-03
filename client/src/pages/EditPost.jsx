@@ -10,15 +10,15 @@ const EditPost = ({data}) => {
     return (
         <div>
             <form>
-                <label for="title">Title</label> <br />
+                <label htmlFor="title">Title</label> <br />
                 <input type="text" id="title" name="title" value={post.title} /><br />
                 <br/>
 
-                <label for="author">Author</label><br />
+                <label htmlFor="author">Author</label><br />
                 <input type="text" id="author" name="author" value={post.author} /><br />
                 <br/>
 
-                <label for="description">Description</label><br />
+                <label htmlFor="description">Description</label><br />
                 <textarea rows="5" cols="50" id="description" value={post.description} >
                 </textarea>
                 <br/>
