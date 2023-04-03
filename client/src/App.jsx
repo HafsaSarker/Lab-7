@@ -27,7 +27,7 @@ const App = () => {
     },
     {
       path:"/edit/:id",
-      element: <EditPost allPosts={allPosts} post={post} />
+      element: <EditPost allPosts={allPosts} />
     },
     {
       path:"/new",

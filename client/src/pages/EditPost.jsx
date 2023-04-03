@@ -3,12 +3,9 @@ import { useParams } from 'react-router-dom';
 import { supabase } from '../client';
 import './EditPost.css'
 
-const EditPost = ({allPosts, post}) => {   
-    //console.log(post)
-
+const EditPost = ({allPosts}) => {   
     let {id} = useParams();
     let num = parseInt(id);
-    //console.log(id);
     
     const postEdit = allPosts.filter((item) => item.id === num)[0];
 
